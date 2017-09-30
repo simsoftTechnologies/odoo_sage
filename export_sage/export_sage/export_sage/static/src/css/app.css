@@ -1,0 +1,412 @@
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+@import 'https://fonts.googleapis.com/css?family=Lato';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.Spacer-10 { margin-top: 10px }
+.Spacer-20 { margin-top: 20px }
+.Spacer-30 { margin-top: 30px }
+.Spacer-40 { margin-top: 40px }
+.Spacer-50 { margin-top: 50px }
+.Spacer-60 { margin-top: 60px }
+.Spacer-70 { margin-top: 70px }
+.Spacer-80 { margin-top: 80px }
+.Spacer-90 { margin-top: 90px }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.3em;
+}
+/**/
+.FormHeader {
+    position: relative;
+    background: #794069 url(http://www.oospy.ca/fatma/bookform_header.png) no-repeat 90% center !important;
+    color: white;
+    padding: 35px;
+    width: 104%;
+    font-size: 22px;
+    margin: -16px;
+    margin-bottom: 40px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.FormHeaderSaison {
+    background: #794069 url() no-repeat 90% center !important;
+   padding: 50px !important;
+}
+.BookForm .FormHeaderProduct {
+    position: relative;
+    background: #794069 url(http://image.flaticon.com/icons/svg/12/12719.svg) no-repeat 90% center !important;
+    color: white;
+    padding: 70px !important;
+    font-size: 22px;
+    margin: -16px;
+    margin-bottom: 45px!important;
+    font-family: 'Oswald', sans-serif;
+}
+.FormHeaderReserver {
+    position: relative;
+    background: #794069 url(http://cavalopretorentals.com/wp-content/uploads/2013/02/make_a_reservation.png) no-repeat 50% center !important;
+    color: white;
+    padding: 70px !important;
+/*    width: 102%;*/
+    font-size: 22px;
+    margin: -16px;
+    margin-bottom: 45px!important;
+    font-family: 'Oswald', sans-serif;
+}
+
+.FormHeader:after ,.FormHeaderReserver:after ,.FormHeaderSaison:after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: #794069;
+    position: absolute;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 50%;
+    margin-left: -20px;
+    bottom: -20px;
+}
+
+.BookForm .oe_horizontal_separator {
+    font-weight: normal !important;
+    font-family: 'Oswald', sans-serif !important;
+    position: relative;
+    overflow: hidden;
+} 
+
+.BookForm .oe_horizontal_separator:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #794069;
+    position: absolute;
+    top: 15px;
+    margin-left: 20px;
+} 
+
+.FormFooter {
+    background: #794069 !important;
+    color: white;
+    padding: 3px 20px;
+    text-align: center;
+    font-size: 13px;
+    margin: -16px;
+    margin-top: 40px;
+}
+
+/**/
+.page { margin: 25px 0; }
+
+.PageHeaderAdr li {
+    clear: both;
+}
+
+.PageHeaderAdr li:first-child {
+    margin-bottom: 7px;
+    font-size: 16px;
+}
+
+.PageHeaderAdr li span {
+    float: left;
+    display: block;
+}
+
+.PageHeaderAdr li span:first-child {
+    width: 70px;
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+
+.LivrBanner h2.Tticket  {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.table thead {
+    background-color: #dadada;
+    border-bottom: 0;
+} 
+
+.table {
+    font-size: 13px;
+}
+
+.Badg-row {
+    border: 1px solid #444;
+    padding: 35px 15px 15px 15px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.Badg-row h3 {
+    font-weight: 600;
+    font-size: 19px;
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 30px;
+}
+
+.TableFigure {
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    padding: 15px;
+    font-size: 13px;
+}
+
+.Badg-row.Badg-Fot-row {
+    font-size: 13px;
+    height: 125px;
+}
+
+.Badg-Fot-row h3 {
+    font-weight: 600;
+    font-size: 14px;
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 30px;
+    display: block;
+    text-align: center;
+    min-width: 74%;
+}
+
+
+ textarea{
+     overflow-x: hidden;
+ }
+
+header{
+    min-height:10px!important;
+    display: block !important;
+}
+
+
+input[type="text"], input[type="password"], input[type="number"], textarea, select {
+    border: 1px solid #cfcfcf;
+    border-top-style: none!important;
+    border-right-style: none!important;
+    border-left-style: none!important;
+    width: 100%;
+    outline: none;
+    display: block;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+ul.oe_form_status li, .openerp ul.oe_form_status_clickable li{
+background:none;
+background-color: #ffffff;
+}
+
+.o_web_client .navbar-inverse {
+    background-color: #333 !important;
+    border-color: #2b2b2b !important;
+}
+.o_web_client .openerp .oe_leftbar a.oe_logo .oe_logo_edit {background: rgba(37, 37, 37, 0.9)!important;}
+
+.o_web_client .openerp .oe_leftbar {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex: 0 0 auto;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+    width: 220px;
+    height: 100%;
+    background: #333333 !important;
+    border-right: 1px solid #f0eeee;
+    position: relative;
+    display: inline-block\9;
+    vertical-align: top\9;
+}
+
+.o_web_client .openerp .nav-pills > li.active > a, .openerp a.list-group-item.active > a {
+    background-color: #000000 !important;
+    color: white;
+    border-radius: 0;
+}
+
+
+.o_web_client .openerp .nav-pills > li.active > a, .openerp a.list-group-item.active > a {
+    background-color: rgba(8, 8, 8, 0.53);
+    color: white;
+    border-radius: 0;
+}
+
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #242424 !important;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #272727;
+}
+
+.o_web_client .openerp .oe-control-panel .oe-view-title {
+    font-size: 18px;
+    padding-left: 0;
+    margin: 0;
+    background-color: #f9f9f9 !important;
+}
+
+.o_form_view .o_horizontal_separator{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 0px 10px 0px;
+    color: #794069 !important;
+    font-weight: normal !important;
+    font-family: 'Oswald', sans-serif !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.o_form_view .o_horizontal_separator:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #794069;
+    position: absolute;
+    top: 15px;
+    margin-left: 20px;
+}
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #272727;
+}
+
+.o_web_client .openerp .oe_leftbar .oe_footer {
+    background: #794069;
+    text-align: center;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    color: white;
+}
+################################
+
+/* data taille*/
+ 
+ .taille-data [data-id="name"]{width: 150px!important;}
+ .taille-data [data-id="product_id"]{width: 250px!important;}
+ .taille-data [data-id="quantity"]{width: 100px!important;}
+ .taille-data [data-id="date"]{width: 300px!important;}
+ .taille-data [data-id="date_service"]{width: 150px!important;}
+[data-field="list_occpant"]{color: rgb(131, 68, 177);}
+
+
+###################################
+/*kanban color etat chambre*/
+
+.oe_kanban_status.oe_kanban_status_reserve {
+    background-color: #FF5722;
+}
+.oe_kanban_status_reserve {
+    background: #FF5722;
+    background-position: center center;
+    background-image: -webkit-radial-gradient(circle, #E91E63 0%, #E91E63 40%, #E91E63 100%);
+    background-image: -moz-radial-gradient(#55dd55 0%, #44aa44 40%, #339933 100%);
+    background-image: -ms-radial-gradient(#55dd55 0%, #44aa44 40%, #339933 100%);
+    background-image: radial-gradient(circle, #FF9800 0%, #FF5722 40%, #E91E63 100%);
+}
+
+.oe_kanban_status.oe_kanban_status_sale {
+    background-color: #795548;
+}
+.oe_kanban_status_sale {
+    background: #795548;
+    background-position: center center;
+    background-image: -webkit-radial-gradient(circle, #ee7777 0%, #9E9E9E 40%, #bb0808 100%);
+    background-image: -moz-radial-gradient(#ee7777 0%, #cc3333 40%, #bb0808 100%);
+    background-image: -ms-radial-gradient(#ee7777 0%, #cc3333 40%, #bb0808 100%);
+    background-image: radial-gradient(circle, #ee7777 0%, #9E9E9E 40%, #795548 100%);
+}
+
+.oe_kanban_view .oe_kanban_status {
+ position: relative;
+ top: -13px;
+}
+
+.mycss.o_kanban_view.o_kanban_grouped .o_kanban_record {
+    width: 260px!important;
+}
+
+.mycss.o_kanban_view .o_kanban_group:not(.o_column_folded) {
+    width: 272px;
+}
+.BookForm .o_form_sheet_bg {
+
+    background: url(//static.lollum.com/morrisonhotelv3/wp-content/uploads/2016/12/bg_site.jpg)!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+    background-size: cover!important;
+}

@@ -1,0 +1,84 @@
+<openerp>
+	<data>
+
+	
+    <record id="form_product_category_inherit" model="ir.ui.view">
+      <field name="name">product.category.form.inherit</field>
+      <field name="model">product.category</field>
+      <field name="inherit_id" ref="product.product_category_form_view"/>
+      <field name="arch" type="xml">
+      <xpath expr="//field[@name='parent_id']" position="before">
+        <field name="code_famille" />
+      </xpath>
+
+      </field></record>
+	  
+
+
+
+		<record id="form_ProductTemplate_simsoft_inherit_crm" model="ir.ui.view">
+			<field name="name">product.template.form.inherit</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_form_view"/>
+			<field name="arch" type="xml">
+			
+		
+		
+		<xpath expr="//field[@name='list_price']" position="after">
+          <field name="barcode25"   invisbile= "1"/>
+        </xpath>
+		<xpath expr="//field[@name='list_price']" position="after">
+          <field name="default_code25" invisbile= "1" />
+        </xpath>
+				<xpath expr="//page[@name='general_information']" position="after">
+					<page string="Information CRM" name="Crm_information">
+
+						<group name="CRM">
+							<div>
+								<group name="presentation " string="Présentation" >
+								
+									<field name="presentation"/>
+									<field name="couleur"   />
+									<field name="format"/>
+									<field name="matiere" widget = "many2many_tags"/>
+								</group>
+								<group name ="Detailles" string="Détailles">
+									<field name="emballage"/>
+									
+									<field name="cliche"/>
+									<field name="frais"/>  
+									<field name="remparque"/>
+									<field name="remise_client"/>
+
+									<field name="fabrication" widget = "many2many_tags" />
+								</group>
+							</div>
+							<div>
+								<group name ="Statistique" string= "Statistique">
+									<field name="qty_vendu1"/>
+									<field name="qty_vendu2"/>
+									<field name="qty_vendu"/>
+									<field name="qty_previsionnement"/>
+									<field name="dernier_date_vente"/>
+									<field name="dernier_date_achat"/>
+									<field name="dernier_qty_produite"/>
+									<field name="exigence_document_de_qualite1"/>
+									<field name="dernier_qty_produite"/>
+									
+								</group>
+							</div>
+
+
+						</group>
+					</page>
+
+
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<!-- <menuitem name="Product" id="fichier_menu_product" parent="crm_simsoft.fichier_menu" sequence="70" action = "ir_model_view_form_Devis_crm_fields_action_crm_product"/> -->
+	</data>
+</openerp>

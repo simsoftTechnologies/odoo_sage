@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_devis_wizard" model="ir.ui.view">
+		<field name="name">Wizard devis</field>
+		<field name="model">wizard.devis</field>
+		<field name="arch" type="xml">
+			<form>
+			<group>
+				<notebook>
+					<page string="Exigence qualité" name="exigence_qualite">
+						<field name="exigence_qualite" placeholder = "Exigence qualité"  widget = "many2many_tags"/></page>
+				
+					<page string="Exigence conditionnement" name="exigence_conditionnement">
+						<field name="exigence_conditionnement" placeholder = "Exigence conditionnement"  widget = "many2many_tags" /></page>
+				
+					<page string="Exigence technique" name="exigence_technique">
+						<field name="exigence_technique" placeholder = "Exigence technique"   widget = "many2many_tags" /></page>
+					<page string="Matiere" name="matiere" >
+						<field name="matiere"  widget = "many2many_tags" /></page>
+					<page string="Remarque" name="remarque">
+						<field name="remarque"  readonly= "0"  placeholder = "Remarque" /></page>
+						<page string="delai 1ére commande" name="delai 1ére commande">
+						<field name="delai"  readonly= "0"  placeholder = "delai 1ére commande" /></page>
+				</notebook>
+			</group>
+
+
+							<footer>
+								<button   class="oe_highlight"  string="sauvegarde" name = "save" />
+                      or
+								<button string="Cancel" class="oe_link" special="cancel"/>
+							</footer>
+						</form>
+					</field>
+				</record>
+				<record id="action_view_devis_wizard" model="ir.actions.act_window">
+					<field name="name">Wizard devis</field>
+					<field name="res_model">wizard.devis</field>
+					<field name="view_type">form</field>
+					<field name="view_mode">form</field>
+					<field name="view_id" ref="view_devis_wizard"/>
+					<field name="target">new</field>
+
+				</record>
+
+			</odoo>
+			

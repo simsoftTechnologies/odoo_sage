@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		 <report 
+            id="report_saleorder_documents"
+            model="sale.order"
+            string="Devis/avec_contrat"
+            report_type="qweb-html"
+            name="crm_simsoft.report_saleorder_crm"
+            file="crm_simsoft.report_saleorder_crm"
+        />
+		
+        <report 
+            id="report_saleorder_documente_sans"
+            model="sale.order"  
+            string="Devis/sans_contrat"
+            report_type="qweb-html"
+            name="crm_simsoft.report_saleorder_sans_contrat"
+            file="crm_simsoft.report_saleorder_sans_contrat"
+        />
+		
+		
+
+	
+		<record id="paperformat_fichedevis" model="report.paperformat">
+			<field name="name">Devis</field>
+			<field name="default" eval="True" />
+			<field name="format">A4</field>
+			<field name="page_height">0</field>
+			<field name="page_width">0</field>
+			<field name="orientation">Landscape</field>
+			<field name="margin_top">0.00</field>
+			<field name="margin_bottom">0.00</field>
+			<field name="margin_left">4.00</field>
+			<field name="margin_right">4.00</field>
+			<field name="header_line" eval="False" />
+			<field name="header_spacing">0</field>
+			<field name="dpi">90</field>
+		</record>
+
+		<record id="crm_simsoft.report_saleorder_documente_sans" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="crm_simsoft.paperformat_fichedevis" />
+		</record>
+    </data>	
+</openerp> 

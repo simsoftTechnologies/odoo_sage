@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_saleorder_document_crm">
+		<t t-call="report.external_layout">
+			<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />   
+			<div class="page">
+				<div class="container">
+					<div class="row">
+
+
+						<header class="LivrBanner">
+
+
+							<div class="col-xs-6 Spacer-30">
+								<td t-if="o.user_id"> DE :	<span t-field="o.user_id"/>
+								</td>
+								<br/>
+								<td t-if="o.user_id.email"> Email:	<span t-field="o.user_id.email"/>
+								</td>
+								<br/>
+								<h3 class="Tticket">
+									<td name="o.name"> OFFRE DE PRIX N° <span t-field="o.name"/>
+									</td>
+								</h3>
+								<br/>
+								<td t-if="o.date_order"> Date   :  
+									<span t-field="o.date_order"/>
+								</td>
+
+
+
+							</div>
+
+							<div class="col-xs-6 spacer-30">
+								<div class="Badg-row">
+									<div class="Frs-row text-left" t-if="o.partner_id" name="partner_header">
+										<li> Sté                 : <span t-field="o.partner_id"/>
+										</li>
+										<li> Tel                 : <span t-field="o.partner_id.phone"/>
+										</li>
+										<li> Email               : <span t-field="o.partner_id.email"/>
+										</li>
+										<li> Conditions de vente : <span t-field="o.company_id.condition_general"/>
+										</li>
+									</div>
+								</div>
+							</div>
+						</header>
+						<!-- <hr align="center"  bgcolor="#000000" style="width=100% ;height: 5px !important" > </hr> -->
+						<center><p t-field="o.company_id.remerciement"/></center>
+							  
+						 <div class="FactureContainer Spacer-40 col-xs-12" style="margin-top:0px;">
+							<t t-set="display_discount" t-value="any([l.discount for l in o.order_line])"/>
+							<table class="table table-hover table-bordered">
+
+								<t t-foreach="o.order_lines_layouted()" t-as="page"> 
+									<t t-foreach="page" t-as="layout_category">
+										<t t-foreach="layout_category['lines']" t-as="l">
+											<td colspan="5" bgcolor="#BDBDBD" height="5px!important" />  
+											<tr> 
+												<td  colspan="2" style="width:600px; height:10px!important" >
+													Code Article :	<span t-field="l.name"/>
+													<br/>
+													<br/>
+													Référance client : <span t-field="l.reference"/>
+												</td>
+
+												<td style="width:600px;height=10px!important" colspan="3" >
+													Désignation :
+													<span t-field="l.product_uom_qty"/>
+													<span t-field="l.product_uom" groups="product.group_uom"/>
+													<br/>
+													<br/>
+													EAN code :
+													<span t-field="l.product_uom_qty"/>
+													<span t-field="l.product_uom" groups="product.group_uom"/>
+												</td>
+											</tr>
+											<br/>
+											<tr>
+												<td  style="width:600px; height:5px!important"  colspan="2">
+												Format : <span t-field="l.format"/>
+												</td>
+
+												<td style="width:600px; height:5px!important"  colspan="3"> 
+													Nombre de couleurs :
+													<span t-field="l.couleur"/>
+												</td>
+											</tr>
+											<tr>
+												<td  style="width:600px; height:5px!important"  colspan="5">
+												Matière : <span t-field="l.matiere"/>
+												</td>
+
+
+											</tr>
+											<tr>
+												<td  style="width:600px; height:5px!important" colspan="3">
+												Présentation  : <span t-field="l.presentation"/>
+												</td>
+												<td  style="width:600px; height:5px!important"  colspan="2">
+												Conditionnement  : <span t-field="l.exigence_conditionnement"/>
+												</td>
+
+											</tr>
+											<tr>
+												<td  style="width:600px ; height:5px!important"  colspan="5">
+												Exigence spécifique  : <span t-field="l.exigence_technique"/>
+												</td>
+
+
+											</tr>
+											<tr >
+												<td  style="width:200px ; height:5px!important">
+												Qunatité minimale de commande et de livraison   :
+												</td>	
+												<td style="width:100px; height:5px!important">Qté1 :
+													<span t-field="l.qty1"/>
+												</td>
+
+												<td style="width:100px; height:5px!important">Qté2 :
+													<span t-field="l.qty2"/>
+												</td>
+
+												<td style="width:100px; height:5px!important" >Qté3 :
+													<span t-field="l.qty3"/>
+												</td>
+
+												<td style="width:100px; height:5px!important" >Qté4 :
+													<span t-field="l.qty4"/>
+												</td>
+
+
+
+
+											</tr>
+											<tr>
+												<td  style="width:200px; height:5px!important" >
+												Prix* en £ HT Unitaire :
+												</td>					
+												<td  style="width:100px; height:5px!important" >Prix1 :
+													<span t-field="l.prix1"/>
+												</td>
+
+												<td  style="width:100px; height:5px!important" >Prix2 :
+													<span t-field="l.prix2"/>
+												</td>
+
+												<td  style="width:100px; height:5px!important" >Prix3 :
+													<span t-field="l.prix3"/>
+												</td>
+
+												<td  style="width:100px; height:5px!important" >Prix4 :
+													<span t-field="l.prix4"/>
+												</td>
+
+
+
+
+											</tr>
+											<tr>
+												<td  style="width:600px; height:5px!important"  colspan="2">
+												Frais de cliché pour 1ère fabrication  :
+
+													<span t-field="l.cliche"/>
+
+
+												</td>
+												<td  style="width:600px; height:5px!important"  colspan="3">
+												Frais de d'outillage pour 1ère fabrication  :
+
+													<span t-field="l.frais"/>
+
+
+												</td>
+
+
+											</tr>
+
+											<tr>
+												<td  style="width:600px; height:5px!important" colspan="5">
+												Délai 1 ère commande  :
+
+												</td>
+
+
+
+
+											</tr>
+											<tr>
+												<td  style="width:600; height:10px!important"  colspan="5">
+												Commentaire :
+
+												</td>
+
+
+
+
+											</tr>
+
+
+										</t>
+										<t t-if="page_index &lt; page_size - 1" groups="sale.group_sale_layout">
+											<p style="page-break-before:always;"> </p>
+										</t>
+									</t>
+								</t>
+								<style>
+  table {
+    border-collapse: collapse;
+  }
+  td {
+    border: 2px solid #B7B7B7;
+  }
+  th, td {
+    padding: 30px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: #eee;
+  }
+  tr:nth-child(odd) {
+    background-color: #DBDBDB;
+  }            
+								</style>
+							</table>
+						</div>
+
+						<div class="clear"/>
+
+
+						<div class="FacSmall col-xs-7">
+
+						</div>
+						<div class="clear"/>
+
+						<!-- <footer class="FooterFac"> -->
+
+						<!-- <h3>Remarque :</h3> -->
+						<!-- <center style="background-color:#FAEA73;" > -->
+						<!-- <p t-field="o.company_id.duplication"/> -->
+						<!-- </center> -->
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						<div class="col-xs-20" >
+							<div class="Badg-row Badg-Fot-row" style="height: 300px" >
+								<h3>Informations</h3>
+								<p t-field="o.company_id.informations"/>
+								<br/>
+								<p t-if="o.user_id">
+									<span t-field="o.user_id"/>
+								</p>
+							</div>
+						</div>  
+
+
+						<!-- </footer> -->
+
+
+
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+
+	<template id="report_saleorder_crm">
+		<t t-call="report.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="crm_simsoft.report_saleorder_document_crm" t-lang="o.partner_id.lang"/>
+			</t>
+		</t>
+	</template>
+</odoo>

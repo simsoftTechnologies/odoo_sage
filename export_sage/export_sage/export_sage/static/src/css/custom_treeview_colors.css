@@ -1,0 +1,64 @@
+/********************************************************
+Odoo automatically alternate the rows' background color.
+This is why, when we're modifying the background color,
+we must specify the component hierarchy with the ">"
+selector, make sure the style is applied to every child
+with the "nth_child" pseudo-class and to specify a new
+background image (or like in this case: none).
+**********************************************************/
+.oe_list_content > tbody > tr.blue-background:nth-child(n) {
+    background-color: #1a8cff!important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.red-background:nth-child(n) {
+    background-color: #990000 !important;
+    background-image: none;
+}
+.oe_list_content > tbody > tr.green-background:nth-child(n) {
+    background-color: rgba(76, 175, 80, 0.59) !important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.yellow-background:nth-child(n) {
+    background-color: rgba(243, 209, 74, 0.81) !important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.sale-background:nth-child(n) {
+    background-color: #dee180 !important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.occupied-background:nth-child(n) {
+    background-color: rgba(234, 60, 60, 0.28) !important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.libre-background:nth-child(n) {
+    background-color: #bee1bc !important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.reserve-background:nth-child(n) {
+    background-color: rgba(255, 87, 34, 0.46) !important;
+    background-image: none;
+}
+
+.oe_list_content > tbody > tr.decoration-font {
+    font-size: 20px;
+    color: white;
+}
+
+/********************************************************
+Modifying a font color is much more simpler than modifying
+the background. Simply select the css class and apply the
+style.
+**********************************************************/
+.green-font {
+    color: #009900;
+}
+
+.yellow-font {
+    color: #e6b800;
+}

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_saleorder_document_crm_2">
+		<t t-call="report.external_layout">
+			<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />   
+			<div class="page">
+				<div class="container">
+					<div class="row">
+
+						<!-- <header class="PageHeader"> -->
+						<!-- <div class="col-xs-6 PageHeaderAdr"> -->
+						<!-- <br/>  -->
+						<!-- <ul> -->
+
+						<!-- <span t-field="o.company_id.city"/> -->
+						<!-- <span t-field="o.company_id.partner_id.street"/>   -->
+						<!-- <span>  - Rue 2 : </span> -->
+						<!-- <span t-field="o.company_id.street2"/>  -->
+						<!-- <br /> -->
+						<!-- <span> Tél.  </span> -->
+						<!-- <span t-field="o.company_id.partner_id.phone"/> -->
+						<!-- <span> / Fax.  </span> -->
+						<!-- <span t-field="o.company_id.partner_id.fax"/> -->
+
+						<!-- <span>N° fiscal :</span> -->
+						<!-- <span t-field="o.company_id.partner_id.vat"/> -->
+						<!-- <span>E-mail:</span> -->
+						<!-- <span t-field="o.company_id.partner_id.email"/> -->
+						<!-- </ul>      -->
+
+						<!-- </div> -->
+
+						<!-- </header> -->
+
+						<header class="LivrBanner">
+
+
+
+							<div class="col-xs-6 Spacer-30" style="line-height: 100% ; margin-top:12%;">
+
+								<h3 class="Ticket">
+									<td name="o.name">OFFRE DE PRIX N°<span t-field="o.name"/>
+									</td>
+								</h3>
+								<br/>
+								<h5>
+									<td t-if="o.date_order"> Date   :  
+										<span t-field="o.date_order"/>
+									</td>
+								</h5>
+
+
+
+							</div>
+
+							<div class="col-xs-6 spacer-30">
+								<div class="Badg-row" style="background-color:#0080FF; color:#FFFFFF;width:60% ;margin-top: 15%;margin-left:180px;">
+									<div class="Frs-row text-left" t-if="o.partner_id" name="partner_header" >
+										<center>
+											A: Mr <span t-field="o.partner_id"/>
+											<br/>
+											 Tel: <span t-field="o.partner_id.phone"/>
+
+
+										</center>
+
+
+									</div>
+								</div>
+
+							</div>
+
+						</header>
+
+						<div class="FactureContainer Spacer-40 col-xs-12">
+							<t t-set="display_discount" t-value="any([l.discount for l in o.order_line])"/>
+							<t t-foreach="o.order_lines_layouted()" t-as="page">
+								<table class="table table-hover table-bordered">
+									<thead >
+										<mp>
+											<tr>
+												<th>
+													<m>Article</m>
+												</th>
+												<th>
+													<m>Référance</m>
+												</th>
+												<th>
+													<m>Format</m>
+												</th>
+												<th>
+													<m>Matière</m>
+												</th>
+												<th>
+													<m>Impression</m>
+												</th>
+												<th >
+													<m>Présentation</m>
+												</th>
+												<th class="text-center" >
+													<m>Qté annuelle</m>
+												</th>
+												<th class="text-center"  colspan="4" >
+													<m>MOQ/MSQ(prix HT en £/1000)</m>
+
+
+												</th>
+												<th>
+													<m>Outil de découpe pour 1ère fabrication</m>
+												</th>
+												<th>
+													<m>Cliché d'impression pour 1ère fabrication</m>
+												</th>
+												<th>
+													<m>Remarque</m>
+												</th>
+											</tr>
+										</mp>
+
+										<tr>
+											<mo>
+												<td/>
+												<td/>
+												<td/>
+												<td/>
+												<td/>
+												<td/>
+												<td/> 
+												<td>
+													<m>MOQ1</m>
+												</td>
+												<td>
+													<m>Prix1</m>
+												</td>
+												<td>
+													<m>MOQ2</m>
+												</td>
+												<td>
+													<m>Prix2</m>
+												</td>
+												<td/>
+												<td/>
+												<td/>
+
+											</mo>
+										</tr>
+									</thead>
+									<tbody class="sale_tbody">
+										<t t-foreach="page" t-as="layout_category">
+
+											<t t-if="layout_category_size > 1 or page_size > 1" groups="sale.group_sale_layout">
+												<tr class="active">
+													<td colspan="7" style="font-weight: bold; border-bottom: 1px solid black;">&amp;bull;
+														<t t-esc="layout_category['name']"/>
+													</td>
+												</tr>
+											</t>
+
+											<t t-foreach="layout_category['lines']" t-as="l">
+												<tr>
+													<td>
+														<span t-field="l.name"/>
+													</td>
+													<td>
+														<span t-field="l.reference"/>
+													</td>
+													<td>
+														<span t-field="l.format"/>
+													</td>
+													<td>
+														<span t-field="l.matiere"/>
+													</td>
+													<td>
+														<span t-field="l.couleur"/>
+													</td>
+													<td>
+														<span t-field="l.presentation"/>
+													</td>
+													<td>
+														<span t-field="l.product_uom_qty"/>
+													</td>
+													<td>
+														<span t-field="l.prix1"/>
+													</td>
+													<td>
+														<span t-field="l.prix1"/>
+													</td>
+													<td>
+														<span t-field="l.prix1"/>
+													</td>
+													<td>
+														<span t-field="l.prix1"/>
+													</td>
+
+													<td>
+														<span t-field="l.cliche"/>
+													</td>
+													<td>
+														<span t-field="l.frais"/>
+													</td>
+													<td>
+
+													</td>
+
+
+												</tr>
+											</t>
+
+
+
+										</t>
+									</tbody>
+
+									<style>
+  table {
+    border-collapse: collapse;
+  }
+  td {
+    border: 2px solid #B7B7B7;
+  }
+  mp{
+   background-color:#FAEA73;
+  }
+   m {
+      font-size: 75%;
+  }
+  th {
+    padding: 30px;
+	  padding-right :10px;
+  padding-left : 10px;
+    text-align: center;
+	 background-color: #FAEA73;
+	  valign :Middel ;
+  }
+  mo{
+   background-color: #FAEA73;
+  }
+  td {
+    padding: 30px;
+	  padding-right :10px;
+  padding-left : 10px;
+    text-align: left;
+	font-size: 90%;
+	line-height: 1;
+  }
+  tr:nth-child(even) {
+    background-color: #eee;
+  }
+  tr:nth-child(odd) {
+    background-color: #DBDBDB;  
+  }            
+									</style>
+								</table>
+
+								<t t-if="page_index &lt; page_size - 1" groups="sale.group_sale_layout">
+									<p style="page-break-before:always;"> </p>
+								</t>
+							</t>
+						</div>
+
+
+						<div class="clear"/>
+
+
+						<div class="FacSmall col-xs-7">
+
+						</div>
+						<div class="clear"/>
+
+						<!-- <footer class="FooterFac"> -->
+
+						<!-- <h3>Remarque :</h3> -->
+						<!-- <center style="background-color:#FAEA73;" > -->
+						<!-- <p t-field="o.company_id.duplication"/> -->
+						<!-- </center> -->
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+						<h3>Condition de vente</h3>
+						<div  style="font-size: 50%; ;  line-height: 100%" >
+
+							<p t-field="o.company_id.informations_sans_contrat"/>
+							<br/>
+							<p t-if="o.user_id">
+								<span t-field="o.user_id"/>
+							</p>
+						</div>
+
+
+
+						<!-- </footer> -->
+
+
+
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+
+	<template id="report_saleorder_sans_contrat">
+		<t t-call="report.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="crm_simsoft.report_saleorder_document_crm_2" t-lang="o.partner_id.lang"/>
+			</t>
+		</t>
+	</template>
+</odoo>

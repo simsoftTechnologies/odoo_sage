@@ -1,0 +1,59 @@
+<openerp>
+	<data>
+
+
+		<record id="view_partner_form_inherit_crm" model="ir.ui.view">
+			<!-- <field name="domain">[('customer','=','true')]</field> -->
+			<field name="name">res.partner.property.form.inherit</field>
+			<field name="model">res.partner</field>
+
+			<field name="inherit_id" ref="base.view_partner_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='category_id']" position="before">
+					<field name="ct_num" />   
+					<field name="ct_num2" />   
+				</xpath>
+				<xpath expr="//field[@name='category_id']" position="after">
+					<field name="ct_num" />   
+					<field name="cd" />   
+				</xpath>
+				<page name="accounting" position="after" >
+					<page string="Information CRM " name="controle">
+
+						<group>
+							<strong>
+
+								<group string="Secteur Client" name="acc_solde" >	
+							
+									<field name="secteur_activite"/>
+									<field name="classement_client"/>
+									<field name="ct_num2" invisible = "0"/>
+									<field name="group_client_general"/>
+									<field name="group_client_specifique"/>
+
+
+								</group>
+							</strong> 
+							<strong>
+								<group string="Model de payment" name="acc_engagement" >
+									<field name="chiffre_affaire" />
+									<field name="chiffre_affaire1" />
+									<field name="chiffre_affaire2" />
+								</group>
+							</strong> 
+
+						</group>
+
+					</page>
+				</page>
+			</field>
+		</record>
+
+
+
+	
+
+
+		<!-- <menuitem name="Product" id="fichier_menu_product" parent="crm_simsoft.fichier_menu" sequence="70" action = "ir_model_view_form_Devis_crm_fields_action_crm_product"/> -->
+	</data>
+</openerp>

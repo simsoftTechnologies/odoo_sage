@@ -1,0 +1,71 @@
+<openerp>
+	<data>
+	
+
+<!-- <record id="form_partner_id_inherit3" model="ir.ui.view"> -->
+      <!-- <field name="name">res partner</field> -->
+      <!-- <field name="model">res.partner</field> -->
+      <!-- <field name="inherit_id" ref="base.view_partner_form"/> -->
+      <!-- <field name="arch" type="xml"> -->
+   
+	   <!-- <xpath expr="//fields[@name='street']" position="before"> -->
+			<!-- <field name="ct_num" /> -->
+			 <!-- <field name="property_account_receivable_id"/> -->
+
+			<!-- </xpath>  -->
+	   
+	  
+      <!-- </field> -->
+    <!-- </record> -->
+		<record id="crm_parametrage_sage_form" model="ir.ui.view">
+			<field name="name">parametrage_sage</field>
+			<field name="model">parametrage.sage</field>
+			<field name="arch" type="xml">
+				<form string="paramétrage sage">
+					<header>
+						<button name="test_connection_sage" type="object" string="Test de connection" class="btn-primary"/>
+
+					</header>
+					<sheet>
+						<group col="4">
+							<field name="name"/>
+							<field name="DATABASE"/>
+							<field name="UID"/>
+							<field name="PWD"/>
+							<field name="serveur"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="crm_parametrage_sage_tree" model="ir.ui.view">
+			<field name="name">parametrage_sage</field>
+			<field name="model">parametrage.sage</field>
+			<field name="arch" type="xml">
+				<tree>
+
+					<field name="name"/>
+					<field name="DATABASE"/>
+					<!-- <field name="DSN"/> -->
+					<field name="UID"/>
+					<field name="PWD"/>
+					<field name="serveur"/>
+
+				</tree>
+			</field>
+		</record>
+		<record id="action_parametrage_sage" model="ir.actions.act_window">
+			<field name="name">parametrage_sage</field>
+			<field name="res_model">parametrage.sage</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="crm_parametrage_sage_tree"/>
+
+		</record>
+		
+		
+		<menuitem id="connx" name="paramétrage sage "
+                  parent="sales_team.menu_base_partner" action="action_parametrage_sage" sequence="5"/>   
+		
+
+	</data>
+</openerp>

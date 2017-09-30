@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<templates id="hotel_template" xml:space="preserve">
+
+    <t t-name="summaryDetails">
+        <div style="overflow:auto;" >
+            <table border="1"  class="table-hover table-bordered">
+                <!-- <tr>
+                    <th>
+                        <i class="fa fa-table"></i>Table TR with colors 
+                    </th>
+                </tr> -->
+                <t t-foreach="widget.summary_header" t-as="header_detail">
+                <tr>
+                    <t t-foreach="header_detail.header" t-as="date">
+                        <th class="table_header" style="text-align:center;"><t t-esc="date"/></th>  
+                    </t>
+                </tr>   
+                </t>
+                <t t-foreach="widget.room_summary" t-as="detail">
+
+                    <tr >
+
+                        <td class="faRoom" colsan="2"><span class="fa fa-square">
+                            <t t-esc="detail.name"/></span>
+                        </td>
+                        <t t-foreach="detail.value" t-as="status">
+                            <t t-if="status.state == 'Libre'">
+                                <td class="table_free"  t-att-data = "status.room_id" t-att-date = "status.date" style="text-align:center;"><i class="fa fa-check" aria-hidden="true"></i><t t-esc="status.state"/></td>
+                            </t>
+                            <t t-if="status.state == 'Reserve'">
+                                <td class="table_reserved"  style="text-align:center;" ><i class="fa fa-spinner" aria-hidden="true"></i>[<t t-esc="status.Numsejour"/>]<t t-esc="detail.cardex"/> </td>
+                            </t>  
+
+                            <t t-if="status.state == 'Occupee'">
+                                <td class="table_Occupee"  style="text-align:center;" ><i class="fa fa-times" aria-hidden="true"></i>[<t t-esc="status.Numsejour"/>]<t t-esc="status.cardex"/></td>
+                            </t>              
+                        </t>
+                    </tr>       
+                </t>
+            </table>
+        </div>
+        <div class="fn-romm">
+        <div class="navigate">
+            <div class="nav-slider">
+                <div class="nav-slider-left">
+                    <button type="button" class="nav-link nav-page-back">&lt;</button>
+                    <div class="page-number">
+                        <span>1 / 1</span>
+                    </div>
+                    <button type="button" class="nav-link nav-page-next">&gt;</button>
+                        <button type="button" class="nav-link nav-now">●</button>
+                        <button type="button" class="nav-link nav-prev-week">&lt;&lt;</button>
+                        <button type="button" class="nav-link nav-prev-day">&lt;</button>
+                    </div>
+                    <div class="nav-slider-content">
+                        <div class="nav-slider-bar">
+                            <a class="nav-slider-button" style="left: 81.75px;"></a>
+                        </div>
+                    </div>
+                        <div class="nav-slider-right">
+                        <button type="button" class="nav-link nav-next-day">&gt;</button>
+                        <button type="button" class="nav-link nav-next-week">&gt;&gt;</button>
+                        <button type="button" class="nav-link nav-zoomIn">+</button>
+                        <button type="button" class="nav-link nav-zoomOut">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ############################ -->
+
+        <!-- ############################ -->
+    </t>        
+</templates>
